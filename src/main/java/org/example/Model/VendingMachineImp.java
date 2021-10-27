@@ -54,7 +54,7 @@ public class VendingMachineImp implements VendingMachine{
     public String[] getProducts() {
         String[] productsDetails = new String[this.products.length];
         String productDetail;
-        for (int i = 0; i > this.products.length;i++) {
+        for (int i = 0; i < this.products.length;i++) {
             productDetail = "id = " + this.products[i].getId() + ",Product's name: "
                     + this.products[i].getProductName()
                     + ",price = " + this.products[i].getPrice();
