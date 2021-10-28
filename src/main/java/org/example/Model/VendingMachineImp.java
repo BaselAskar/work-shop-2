@@ -14,7 +14,7 @@ public class VendingMachineImp implements VendingMachine{
     @Override
     public void addCurrency(int amount) {
         for (int currency: CURRENCIES) {
-            if (amount == currency) depositPool += amount;
+            if (amount == currency) depositPool += (double) amount;
         }
     }
 
@@ -28,11 +28,9 @@ public class VendingMachineImp implements VendingMachine{
         Product product = null;
 
         //Finding the product
-        for (Product p : products ){
-            if (p.getId() == id) product = p;
+        for (Product p : this.products ){
+            if (p.getId() == id && this.depositPool >= p.getPrice()) product = p;
 
-            //Checking price
-            if (this.depositPool >= product.getPrice()) return product;
         }
 
         return product;
